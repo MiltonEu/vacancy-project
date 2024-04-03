@@ -21,6 +21,7 @@
     "test:unit": "jest --config ./src/jest-unit.json"
   },
   "dependencies": {
+    "@golevelup/ts-jest": "^0.4.0",
     "@nestjs/apollo": "^12.1.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
