@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: todo
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+  pgweb:
+    container_name: pgweb  # optional
+    restart: always  # optional
+    image: sosedoff/pgweb
+    ports: 
+      - "8081:8081" 
+    links: 
+      - postgres:postgres  # my database container is called postgres, not db
+    environment:
+      - PGWEB_DATABASE_URL=postgres://postgres:postgres@postgres:5432/todo?sslmode=disable
+    depends_on:
+      - postgres  # my database container is called postgres, not db

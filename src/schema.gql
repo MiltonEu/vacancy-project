@@ -1,0 +1,32 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ApiTodo {
+  todoId: String!
+  title: String!
+  completed: Boolean!
+}
+
+type Query {
+  findAll: [ApiTodo!]!
+}
+
+type Mutation {
+  createTodo(createTodoArgs: CreateTodoArgs!): ApiTodo!
+  updateTodo(updateTodoArgs: UpdateTodoArgs!): ApiTodo!
+  removeTodo(deleteTodoArgs: DeleteTodoArgs!): ApiTodo!
+}
+
+input CreateTodoArgs {
+  title: String!
+}
+
+input UpdateTodoArgs {
+  todoId: String!
+  title: String!
+}
+
+input DeleteTodoArgs {
+  todoId: String!
+}
